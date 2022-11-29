@@ -21,306 +21,452 @@ namespace Karaoke.Components
         private EditOrder edit;
         private string searchType;
         private string filterType;
+        private AddOrderFood addOrderFoodFrm;
         public TableOrderManager()
         {
             InitializeComponent();
             list.AutoGenerateColumns = false;
             list.DataSource = getOrders();
+            list.Rows[0].Selected = true;
             sort = new Sort(list.Columns[1].DataPropertyName, "ASC");
             searchType = this.seachTypeBox.Text;
             filterType = this.statusDropdown.Text;
+            DataGridViewCellEventArgs e = new DataGridViewCellEventArgs(0, 0);
+            list_CellContentClick(new { }, e);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult resultMessage = MessageBox.Show("Chắc chắn xóa phòng này???", "Xác nhận xóa", MessageBoxButtons.YesNo);
-            if (DialogResult.Yes == resultMessage)
+            try
             {
-                List<long> ids = new List<long>();
-
-                for (int i = 0; i < list.SelectedRows.Count; i++)
+                DialogResult resultMessage = MessageBox.Show("Chắc chắn xóa phòng này???", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (DialogResult.Yes == resultMessage)
                 {
-                    ids.Add(long.Parse(list.SelectedRows[i].Cells["Id"].Value.ToString()));
+                    List<long> ids = new List<long>();
+
+                    for (int i = 0; i < list.SelectedRows.Count; i++)
+                    {
+                        ids.Add(long.Parse(list.SelectedRows[i].Cells["Id"].Value.ToString()));
+                    }
+
+                    db.Orders.RemoveRange(db.Orders.Where(x => ids.Contains(x.Id)));
+                    db.SaveChanges();
+
+                    list.DataSource = getOrders();
+                    list.Rows[0].Selected = true;
                 }
-
-                db.Orders.RemoveRange(db.Orders.Where(x => ids.Contains(x.Id)));
-                db.SaveChanges();
-
-                list.DataSource = getOrders();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            DataGridViewCellCollection cells = list.SelectedRows[0].Cells;
-            edit = new EditOrder("EDIT_ORDER", 
-                cells["Id"].Value.ToString(),
-                cells["CustomerName"].Value.ToString(),
-                cells["PhoneNumber"].Value.ToString(),
-                cells["RoomName"].Value.ToString(),
-                cells["PriceRoom"].Value.ToString(),
-                Convert.ToDateTime(cells["StartDateTime"].Value.ToString()),
-                Convert.ToDateTime(cells["EndDateTime"].Value.ToString()),
-                cells["Status"].Value.ToString()
-                );
-            edit.FormClosed += editForm_FormClose;
-            edit.Show();
+            try
+            {
+                DataGridViewCellCollection cells = list.SelectedRows[0].Cells;
+                edit = new EditOrder("EDIT_ORDER",
+                    cells["Id"].Value.ToString(),
+                    cells["CustomerName"].Value.ToString(),
+                    cells["PhoneNumber"].Value.ToString(),
+                    cells["RoomName"].Value.ToString(),
+                    cells["PriceRoom"].Value.ToString(),
+                    Convert.ToDateTime(cells["StartDateTime"].Value.ToString()),
+                    Convert.ToDateTime(cells["EndDateTime"].Value.ToString()),
+                    cells["Status"].Value.ToString()
+                    );
+                edit.FormClosed += editForm_FormClose;
+                edit.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void editForm_FormClose(object sender, FormClosedEventArgs e)
         {
-            this.statusDropdown.SelectedIndex = 0;
-            edit.FormClosed -= editForm_FormClose;
+            try
+            {
+                list.DataSource = getOrders();
+                this.statusDropdown.SelectedIndex = 0;
+                edit.FormClosed -= editForm_FormClose;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            edit = new EditOrder("ADD_ORDER",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    DateTime.Now,
-                    DateTime.Now,
-                    ""
-                );
-            edit.FormClosed += editForm_FormClose;
-            edit.Show();
+            try
+            {
+                edit = new EditOrder("ADD_ORDER",
+                   "",
+                   "",
+                   "",
+                   "",
+                   "",
+                   DateTime.Now,
+                   DateTime.Now,
+                   ""
+               );
+                edit.FormClosed += editForm_FormClose;
+                edit.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void statusDropdown_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (this.statusDropdown.Text == "Tất cả")
+            try
             {
-                list.DataSource = getOrders();
+                if (this.statusDropdown.Text == "Tất cả")
+                {
+                    list.DataSource = getOrders();
+                    list.Rows[0].Selected = true;
+                }
+                else
+                {
+                    list.DataSource = db.Orders.Join
+                                (
+                                db.Rooms,
+                                order => order.RoomCode,
+                                room => room.Code,
+                                (order, room) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    order.PersonID,
+                                    order.CustomerName,
+                                    room.Name
+                                }
+                                )
+                                .Join
+                                (
+                                db.Users,
+                                order => order.PersonID,
+                                user => user.PersonId,
+                                (order, user) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    user.Fullname,
+                                    order.CustomerName,
+                                    order.Name
+                                }
+                                ).Where(order => order.Status.Contains(statusDropdown.Text)).ToList();
+                }
             }
-            else
+            catch (Exception)
             {
-                list.DataSource = db.Orders.Join
-                            (
-                            db.Rooms,
-                            order => order.RoomCode,
-                            room => room.Code,
-                            (order, room) => new
-                            {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                order.PersonID,
-                                order.CustomerName,
-                                room.Name
-                            }
-                            )
-                            .Join
-                            (
-                            db.Users,
-                            order => order.PersonID,
-                            user => user.PersonId,
-                            (order, user) => new
-                            {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                user.Fullname,
-                                order.CustomerName,
-                                order.Name
-                            }
-                            ).Where(order => order.Status.Contains(statusDropdown.Text)).ToList();
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            if (this.searchBox.Text.Trim() != "")
+            try
             {
-                switch (this.searchType)
+                if (this.searchBox.Text.Trim() != "")
                 {
-                    case "Tên":
-                        {
-                            list.DataSource = db.Orders.Join
-                            (
-                            db.Rooms,
-                            order => order.RoomCode,
-                            room => room.Code,
-                            (order, room) => new
+                    switch (this.searchType)
+                    {
+                        case "Tên":
                             {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                order.PersonID,
-                                order.CustomerName,
-                                room.Name
+                                list.DataSource = db.Orders.Join
+                                (
+                                db.Rooms,
+                                order => order.RoomCode,
+                                room => room.Code,
+                                (order, room) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    order.PersonID,
+                                    order.CustomerName,
+                                    room.Name
+                                }
+                                )
+                                .Join
+                                (
+                                db.Users,
+                                order => order.PersonID,
+                                user => user.PersonId,
+                                (order, user) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    user.Fullname,
+                                    order.CustomerName,
+                                    order.Name
+                                }
+                                )
+                                .Where(x => x.CustomerName.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
+                                break;
                             }
-                            )
-                            .Join
-                            (
-                            db.Users,
-                            order => order.PersonID,
-                            user => user.PersonId,
-                            (order, user) => new
+                        case "Phòng":
                             {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                user.Fullname,
-                                order.CustomerName,
-                                order.Name
+                                list.DataSource = db.Orders.Join
+                                (
+                                db.Rooms,
+                                order => order.RoomCode,
+                                room => room.Code,
+                                (order, room) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    order.PersonID,
+                                    order.CustomerName,
+                                    room.Name
+                                }
+                                )
+                                .Join
+                                (
+                                db.Users,
+                                order => order.PersonID,
+                                user => user.PersonId,
+                                (order, user) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    user.Fullname,
+                                    order.CustomerName,
+                                    order.Name
+                                }
+                                )
+                                .Where(x => x.Name.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
+                                break;
                             }
-                            )
-                            .Where(x => x.CustomerName.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
-                            break;
-                        }
-                    case "Phòng":
-                        {
-                            list.DataSource = db.Orders.Join
-                            (
-                            db.Rooms,
-                            order => order.RoomCode,
-                            room => room.Code,
-                            (order, room) => new
+                        case "Số điện thoại":
                             {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                order.PersonID,
-                                order.CustomerName,
-                                room.Name
+                                list.DataSource = db.Orders.Join
+                                (
+                                db.Rooms,
+                                order => order.RoomCode,
+                                room => room.Code,
+                                (order, room) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    order.PersonID,
+                                    order.CustomerName,
+                                    room.Name
+                                }
+                                )
+                                .Join
+                                (
+                                db.Users,
+                                order => order.PersonID,
+                                user => user.PersonId,
+                                (order, user) => new
+                                {
+                                    order.Id,
+                                    order.StartDateTime,
+                                    order.EndDateTime,
+                                    order.PhoneNumber,
+                                    order.Status,
+                                    order.RoomPrice,
+                                    user.Fullname,
+                                    order.CustomerName,
+                                    order.Name
+                                }
+                                )
+                                .Where(x => x.PhoneNumber.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
+                                break;
                             }
-                            )
-                            .Join
-                            (
-                            db.Users,
-                            order => order.PersonID,
-                            user => user.PersonId,
-                            (order, user) => new
-                            {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                user.Fullname,
-                                order.CustomerName,
-                                order.Name
-                            }
-                            )
-                            .Where(x => x.Name.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
-                            break;
-                        }
-                    case "Số điện thoại":
-                        {
-                            list.DataSource = db.Orders.Join
-                            (
-                            db.Rooms,
-                            order => order.RoomCode,
-                            room => room.Code,
-                            (order, room) => new
-                            {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                order.PersonID,
-                                order.CustomerName,
-                                room.Name
-                            }
-                            )
-                            .Join
-                            (
-                            db.Users,
-                            order => order.PersonID,
-                            user => user.PersonId,
-                            (order, user) => new
-                            {
-                                order.Id,
-                                order.StartDateTime,
-                                order.EndDateTime,
-                                order.PhoneNumber,
-                                order.Status,
-                                order.RoomPrice,
-                                user.Fullname,
-                                order.CustomerName,
-                                order.Name
-                            }
-                            )
-                            .Where(x => x.PhoneNumber.ToLower().Contains(this.searchBox.Text.ToLower())).ToList();
-                            break;
-                        }
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    list.DataSource = getOrders();
+                    list.Rows[0].Selected = true;
                 }
             }
-            else
+            catch (Exception)
             {
-                list.DataSource = getOrders();
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public BindingSource getOrders()
         {
             BindingSource bds = new BindingSource();
-            bds.DataSource = db.Orders.Join
-                (
-                db.Rooms,
-                order => order.RoomCode,
-                room => room.Code,
-                (order, room) => new
-                {
-                    order.Id,
-                    order.StartDateTime,
-                    order.EndDateTime,
-                    order.PhoneNumber,
-                    order.Status,
-                    order.RoomPrice,
-                    order.PersonID,
-                    order.CustomerName,
-                    room.Name
-                }
-                )
-                .Join
-                (
-                db.Users,
-                order => order.PersonID,
-                user => user.PersonId,
-                (order, user) => new
-                {
-                    order.Id,
-                    order.StartDateTime,
-                    order.EndDateTime,
-                    order.PhoneNumber,
-                    order.Status,
-                    order.RoomPrice,
-                    user.Fullname,
-                    order.CustomerName,
-                    order.Name
-                }
-                ).ToList();
+            try
+            {
+                bds.DataSource = db.Orders.Join
+                    (
+                    db.Rooms,
+                    order => order.RoomCode,
+                    room => room.Code,
+                    (order, room) => new
+                    {
+                        order.Id,
+                        order.StartDateTime,
+                        order.EndDateTime,
+                        order.PhoneNumber,
+                        order.Status,
+                        order.RoomPrice,
+                        order.PersonID,
+                        order.CustomerName,
+                        room.Name
+                    }
+                    )
+                    .Join
+                    (
+                    db.Users,
+                    order => order.PersonID,
+                    user => user.PersonId,
+                    (order, user) => new
+                    {
+                        order.Id,
+                        order.StartDateTime,
+                        order.EndDateTime,
+                        order.PhoneNumber,
+                        order.Status,
+                        order.RoomPrice,
+                        user.Fullname,
+                        order.CustomerName,
+                        order.Name
+                    }
+                    ).ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             return bds;
         }
 
         private void seachTypeBox_SelectedValueChanged(object sender, EventArgs e)
         {
             this.searchType = this.seachTypeBox.Text;
+        }
+
+        private void addOrderFoodFrm_FormClose(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                int orderId = int.Parse(list.SelectedCells[0].Value.ToString());
+                BindingSource listOrderFood = new BindingSource() { DataSource = db.OrderFoods.Where(x => x.OrderId == orderId).Select(x => new { FoodId = x.FoodId, NameFood = x.Food.Name, FoodPrice = x.FoodPrice, QtyFood = x.FoodQuantily, Sum = x.FoodPrice * x.FoodQuantily }).ToList() };
+                orderFoodView.DataSource = listOrderFood.DataSource; 
+                if (orderFoodView.Rows.Count > 0)
+                    orderFoodView.Rows[0].Selected = true;
+                addOrderFoodFrm.FormClosed -= addOrderFoodFrm_FormClose;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void addOrderBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                addOrderFoodFrm = new AddOrderFood("ADD",list.SelectedCells[0].Value.ToString());
+                addOrderFoodFrm.Text = "Thêm hóa đơn";
+                addOrderFoodFrm.FormClosed += addOrderFoodFrm_FormClose;
+                addOrderFoodFrm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void list_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int orderId = int.Parse(list.SelectedCells[0].Value.ToString());
+                BindingSource listOrderFood = new BindingSource() { DataSource = db.OrderFoods.Where(x => x.OrderId == orderId).Select(x => new { FoodId = x.FoodId, NameFood = x.Food.Name, FoodPrice = x.FoodPrice, QtyFood = x.FoodQuantily, Sum = x.FoodPrice * x.FoodQuantily, x.Id }).ToList() };
+                orderFoodView.DataSource = listOrderFood.DataSource;
+                if(orderFoodView.Rows.Count > 0)
+                    orderFoodView.Rows[0].Selected = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteOrderBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult resultMessage = MessageBox.Show("Chắc chắn xóa dữ liệu này???", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (DialogResult.Yes == resultMessage)
+                {
+                    int idOrderFood = int.Parse(orderFoodView.SelectedRows[0].Cells["IdOrder"].Value.ToString());
+                    OrderFood x = db.OrderFoods.First(o => o.Id == idOrderFood);
+                    db.OrderFoods.Remove(x);
+                    db.SaveChanges();
+
+                    DataGridViewCellEventArgs evt = new DataGridViewCellEventArgs(0, 0);
+                    list_CellContentClick(new { }, evt);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void editOrderBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idOrderFood = int.Parse(orderFoodView.SelectedRows[0].Cells["IdOrder"].Value.ToString());
+                int foodId = int.Parse(orderFoodView.SelectedRows[0].Cells["FoodId"].Value.ToString());
+                int amount = int.Parse(orderFoodView.SelectedRows[0].Cells["QtyFood"].Value.ToString());
+                addOrderFoodFrm = new AddOrderFood("EDIT", list.SelectedCells[0].Value.ToString(), idOrderFood, foodId, amount);
+                addOrderFoodFrm.Text = "Chỉnh sửa hóa đơn";
+                addOrderFoodFrm.FormClosed += addOrderFoodFrm_FormClose;
+                addOrderFoodFrm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

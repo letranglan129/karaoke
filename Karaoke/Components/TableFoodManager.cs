@@ -73,6 +73,7 @@ namespace Karaoke.Components
 
         private void editForm_FormClose(object sender, FormClosedEventArgs e)
         {
+            list.DataSource = getFoods();
             this.statusDropdown.SelectedIndex = 0;
             edit.FormClosed -= editForm_FormClose;
         }
@@ -111,7 +112,7 @@ namespace Karaoke.Components
         public BindingSource getFoods()
         {
             BindingSource bds = new BindingSource();
-            bds.DataSource = db.Foods.SqlQuery("SELECT * FROM FOOD ORDER BY Id ASC").Select(x => new { x.Id, x.Name, x.Type, x.Price }).ToList();
+            bds.DataSource = db.Foods.OrderBy(x => x.Id).Select(x => new { x.Id, x.Name, x.Type, x.Price }).ToList();
             return bds;
         }
     }

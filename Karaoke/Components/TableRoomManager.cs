@@ -54,6 +54,7 @@ namespace Karaoke.Components
 
         private void editForm_FormClose(object sender, FormClosedEventArgs e)
         {
+            listRoom.DataSource = getRooms();
             this.statusDropdown.SelectedIndex = 0;
             edit.FormClosed -= editForm_FormClose;
         }
@@ -111,7 +112,7 @@ namespace Karaoke.Components
         public BindingSource getRooms()
         {
             BindingSource bds = new BindingSource();
-            bds.DataSource = db.Rooms.SqlQuery("SELECT * FROM ROOM ORDER BY Code ASC").Select(x => new { x.Code, x.Name, x.Status, x.Price }).ToList();
+            bds.DataSource = db.Rooms.OrderBy(x => x.Code).Select(x => new { x.Code, x.Name, x.Status, x.Price }).ToList();
             return bds;
         }
 
