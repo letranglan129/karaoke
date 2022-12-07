@@ -17,6 +17,7 @@ namespace Karaoke.Components
 
         string id, customerName, phone, roomName, status, price, type;
 
+
         private void roomTextBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -115,7 +116,7 @@ namespace Karaoke.Components
         public void edit()
         {
             DialogResult rs = MessageBox.Show("Bạn chắn chắc lưu thay đổi này", "Lưu thay đổi", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (rs == DialogResult.OK)
+            if (rs == DialogResult.OK && validateForm())
             {
                 int id = int.Parse(this.idTextBox.Text);
                 string name = this.nameTextBox.Text;
@@ -140,7 +141,7 @@ namespace Karaoke.Components
         public void add()
         {
             DialogResult rs = MessageBox.Show("Bạn chắn chắc thêm dữ liệu này này", "Thêm dữ liệu", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (rs == DialogResult.OK)
+            if (rs == DialogResult.OK && validateForm())
             {
                 string name = this.nameTextBox.Text;
                 string phone = this.phoneNumberTextBox.Text;
@@ -167,6 +168,29 @@ namespace Karaoke.Components
                 db.Orders.Add(order);
                 db.SaveChanges();
             }
+        }
+
+        public bool validateForm()
+        {
+            List<string> strError = new List<string>();
+            if (this.nameTextBox.Text.Trim() == "")
+            {
+                strError.Add("Tên");
+            }
+
+            if (this.statusComboBox.Text.Trim() == "")
+            {
+                strError.Add("Trạng thái");
+            }
+
+            if (strError.Count > 0)
+            {
+                string result = String.Join(", ", strError.ToArray()) + " không được để trống!!!";
+                MessageBox.Show(result, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+
         }
     }
 }

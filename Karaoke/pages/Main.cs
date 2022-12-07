@@ -50,13 +50,23 @@ namespace Karaoke.pages
                         manager.Dock = DockStyle.Fill;
                         break;
                     }
-                case "Quản trị":
+                case "Thống kê":
                     {
-                        UserManager userManager = new UserManager();
+                        Analytic userManager = new Analytic();
                         userManager.TopLevel = false;
                         userManager.Parent = userManagerTabContainer;
                         userManager.Show();
                         userManager.Dock = DockStyle.Fill;
+
+                        break;
+                    }
+                case "Thông tin tài khoản":
+                    {
+                        UserInfo comp = new UserInfo();
+                        comp.TopLevel = false;
+                        comp.Parent = userInfo;
+                        comp.Show();
+                        comp.Dock = DockStyle.Fill;
 
                         break;
                     }

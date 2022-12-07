@@ -33,6 +33,7 @@ namespace Karaoke.Components
             this.roomTab = new System.Windows.Forms.TabPage();
             this.foodTab = new System.Windows.Forms.TabPage();
             this.orderTab = new System.Windows.Forms.TabPage();
+            this.userTab = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,6 +42,7 @@ namespace Karaoke.Components
             this.tabControl.Controls.Add(this.roomTab);
             this.tabControl.Controls.Add(this.foodTab);
             this.tabControl.Controls.Add(this.orderTab);
+            this.tabControl.Controls.Add(this.userTab);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.ItemSize = new System.Drawing.Size(320, 48);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
@@ -49,7 +51,7 @@ namespace Karaoke.Components
             this.tabControl.Padding = new System.Drawing.Point(0, 0);
             this.tabControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1713, 1300);
+            this.tabControl.Size = new System.Drawing.Size(2284, 1612);
             this.tabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -77,7 +79,7 @@ namespace Karaoke.Components
             this.roomTab.Location = new System.Drawing.Point(4, 52);
             this.roomTab.Margin = new System.Windows.Forms.Padding(0);
             this.roomTab.Name = "roomTab";
-            this.roomTab.Size = new System.Drawing.Size(1705, 1244);
+            this.roomTab.Size = new System.Drawing.Size(2276, 1556);
             this.roomTab.TabIndex = 0;
             this.roomTab.Text = "Quản lý phòng";
             // 
@@ -85,9 +87,10 @@ namespace Karaoke.Components
             // 
             this.foodTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.foodTab.Location = new System.Drawing.Point(4, 52);
+            this.foodTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.foodTab.Name = "foodTab";
-            this.foodTab.Padding = new System.Windows.Forms.Padding(3);
-            this.foodTab.Size = new System.Drawing.Size(2733, 2024);
+            this.foodTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.foodTab.Size = new System.Drawing.Size(2276, 1556);
             this.foodTab.TabIndex = 1;
             this.foodTab.Text = "Quản lý thức ăn";
             // 
@@ -97,18 +100,28 @@ namespace Karaoke.Components
             this.orderTab.Location = new System.Drawing.Point(4, 52);
             this.orderTab.Margin = new System.Windows.Forms.Padding(0);
             this.orderTab.Name = "orderTab";
-            this.orderTab.Size = new System.Drawing.Size(2733, 2024);
+            this.orderTab.Size = new System.Drawing.Size(2276, 1556);
             this.orderTab.TabIndex = 2;
             this.orderTab.Text = "Quản lý hóa đơn";
             // 
+            // userTab
+            // 
+            this.userTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.userTab.Location = new System.Drawing.Point(4, 52);
+            this.userTab.Name = "userTab";
+            this.userTab.Size = new System.Drawing.Size(2276, 1556);
+            this.userTab.TabIndex = 3;
+            this.userTab.Text = "Quản lý nhân viên";
+            // 
             // Manager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1713, 1300);
+            this.ClientSize = new System.Drawing.Size(2284, 1612);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Manager";
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -121,5 +134,6 @@ namespace Karaoke.Components
         private System.Windows.Forms.TabPage foodTab;
         private System.Windows.Forms.TabPage roomTab;
         private System.Windows.Forms.TabPage orderTab;
+        private System.Windows.Forms.TabPage userTab;
     }
 }

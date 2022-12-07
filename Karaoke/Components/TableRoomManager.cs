@@ -115,6 +115,5 @@ namespace Karaoke.Components
             bds.DataSource = db.Rooms.OrderBy(x => x.Code).Select(x => new { x.Code, x.Name, x.Status, x.Price }).ToList();
             return bds;
         }
-
     }
 }

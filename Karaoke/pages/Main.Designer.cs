@@ -33,6 +33,7 @@ namespace Karaoke.pages
             this.homeTabContainer = new System.Windows.Forms.TabPage();
             this.managerTabContainer = new System.Windows.Forms.TabPage();
             this.userManagerTabContainer = new System.Windows.Forms.TabPage();
+            this.userInfo = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,12 +43,14 @@ namespace Karaoke.pages
             this.tabControl.Controls.Add(this.homeTabContainer);
             this.tabControl.Controls.Add(this.managerTabContainer);
             this.tabControl.Controls.Add(this.userManagerTabContainer);
+            this.tabControl.Controls.Add(this.userInfo);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.ItemSize = new System.Drawing.Size(320, 60);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1711, 922);
+            this.tabControl.Size = new System.Drawing.Size(1604, 981);
             this.tabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -74,7 +77,7 @@ namespace Karaoke.pages
             this.homeTabContainer.Location = new System.Drawing.Point(324, 4);
             this.homeTabContainer.Margin = new System.Windows.Forms.Padding(0);
             this.homeTabContainer.Name = "homeTabContainer";
-            this.homeTabContainer.Size = new System.Drawing.Size(1383, 914);
+            this.homeTabContainer.Size = new System.Drawing.Size(1276, 973);
             this.homeTabContainer.TabIndex = 0;
             this.homeTabContainer.Text = "Trang chủ";
             // 
@@ -84,7 +87,7 @@ namespace Karaoke.pages
             this.managerTabContainer.Location = new System.Drawing.Point(324, 4);
             this.managerTabContainer.Margin = new System.Windows.Forms.Padding(0);
             this.managerTabContainer.Name = "managerTabContainer";
-            this.managerTabContainer.Size = new System.Drawing.Size(1383, 914);
+            this.managerTabContainer.Size = new System.Drawing.Size(1885, 1292);
             this.managerTabContainer.TabIndex = 1;
             this.managerTabContainer.Text = "Quản lý";
             // 
@@ -92,23 +95,38 @@ namespace Karaoke.pages
             // 
             this.userManagerTabContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
             this.userManagerTabContainer.Location = new System.Drawing.Point(324, 4);
+            this.userManagerTabContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.userManagerTabContainer.Name = "userManagerTabContainer";
-            this.userManagerTabContainer.Size = new System.Drawing.Size(1383, 914);
+            this.userManagerTabContainer.Size = new System.Drawing.Size(1885, 1292);
             this.userManagerTabContainer.TabIndex = 2;
-            this.userManagerTabContainer.Text = "Quản trị";
+            this.userManagerTabContainer.Text = "Thống kê";
+            // 
+            // userInfo
+            // 
+            this.userInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(73)))));
+            this.userInfo.Location = new System.Drawing.Point(324, 4);
+            this.userInfo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.userInfo.Name = "userInfo";
+            this.userInfo.Size = new System.Drawing.Size(1885, 1292);
+            this.userInfo.TabIndex = 3;
+            this.userInfo.Text = "Thông tin tài khoản";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1711, 922);
+            this.ClientSize = new System.Drawing.Size(1604, 981);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Main";
             this.Text = "Quản lý Karaoke";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
+
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 
         }
 
@@ -118,6 +136,7 @@ namespace Karaoke.pages
         private System.Windows.Forms.TabPage homeTabContainer;
         private System.Windows.Forms.TabPage managerTabContainer;
         private System.Windows.Forms.TabPage userManagerTabContainer;
+        private System.Windows.Forms.TabPage userInfo;
     }
 }
 

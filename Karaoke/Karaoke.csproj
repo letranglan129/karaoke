@@ -9,13 +9,14 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Karaoke</RootNamespace>
     <AssemblyName>Karaoke</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,7 +29,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -52,6 +52,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net35\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -85,8 +88,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=4.1.9.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.4.1.9\lib\net461\Npgsql.dll</HintPath>
+    <Reference Include="Npgsql, Version=5.0.10.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.5.0.10\lib\netstandard2.0\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.13.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -144,10 +147,16 @@
     <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.4.7.0\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -173,6 +182,24 @@
     <Compile Include="Components\AddOrderFood.Designer.cs">
       <DependentUpon>AddOrderFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Bill.Designer.cs">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ChangePasswordFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ChangePasswordFrm.Designer.cs">
+      <DependentUpon>ChangePasswordFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +211,12 @@
     </Compile>
     <Compile Include="Components\EditOrder.Designer.cs">
       <DependentUpon>EditOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Home.cs">
       <SubType>Form</SubType>
@@ -221,17 +254,23 @@
     <Compile Include="Components\TableOrderManager.Designer.cs">
       <DependentUpon>TableOrderManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\TableUserManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\TableUserManager.Designer.cs">
+      <DependentUpon>TableUserManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\TableRoomManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Components\TableRoomManager.Designer.cs">
       <DependentUpon>TableRoomManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\UserManager.cs">
+    <Compile Include="Components\Analytic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Components\UserManager.Designer.cs">
-      <DependentUpon>UserManager.cs</DependentUpon>
+    <Compile Include="Components\Analytic.Designer.cs">
+      <DependentUpon>Analytic.cs</DependentUpon>
     </Compile>
     <Compile Include="Constanst\OrderStatus.cs" />
     <Compile Include="Constanst\RoomStatus.cs" />
@@ -267,6 +306,7 @@
     <Compile Include="DB\User.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Library\Money.cs" />
     <Compile Include="Library\SortedBindingList.cs" />
     <Compile Include="pages\Login.cs">
       <SubType>Form</SubType>
@@ -285,11 +325,23 @@
     <EmbeddedResource Include="Components\AddOrderFood.resx">
       <DependentUpon>AddOrderFood.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Bill.resx">
+      <DependentUpon>Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ChangePasswordFrm.resx">
+      <DependentUpon>ChangePasswordFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\EditOrder.resx">
       <DependentUpon>EditOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -309,11 +361,14 @@
     <EmbeddedResource Include="Components\TableOrderManager.resx">
       <DependentUpon>TableOrderManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\TableUserManager.resx">
+      <DependentUpon>TableUserManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\TableRoomManager.resx">
       <DependentUpon>TableRoomManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\UserManager.resx">
-      <DependentUpon>UserManager.cs</DependentUpon>
+    <EmbeddedResource Include="Components\Analytic.resx">
+      <DependentUpon>Analytic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -335,8 +390,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AppDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="DB\AppDB.edmx.diagram">
       <DependentUpon>AppDB.edmx</DependentUpon>
     </None>
@@ -368,6 +421,10 @@
       <DependentUpon>AppDB.edmx</DependentUpon>
       <LastGenOutput>AppDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Icon\add.png" />
+    <Content Include="Icon\delete.png" />
+    <Content Include="Icon\edit.png" />
+    <Content Include="Icon\print.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -376,6 +433,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

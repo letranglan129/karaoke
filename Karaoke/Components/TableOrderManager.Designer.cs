@@ -29,19 +29,24 @@ namespace Karaoke.Components
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableOrderManager));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.actionRightPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.submitBillBtn = new Guna.UI2.WinForms.Guna2Button();
             this.deleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.editButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
@@ -96,21 +101,47 @@ namespace Karaoke.Components
             // 
             // actionRightPanel
             // 
+            this.actionRightPanel.Controls.Add(this.submitBillBtn);
             this.actionRightPanel.Controls.Add(this.deleteButton);
             this.actionRightPanel.Controls.Add(this.editButton);
             this.actionRightPanel.Controls.Add(this.addButton);
             this.actionRightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.actionRightPanel.Location = new System.Drawing.Point(832, 0);
+            this.actionRightPanel.Location = new System.Drawing.Point(683, 0);
             this.actionRightPanel.Margin = new System.Windows.Forms.Padding(2);
             this.actionRightPanel.Name = "actionRightPanel";
-            this.actionRightPanel.Size = new System.Drawing.Size(242, 65);
+            this.actionRightPanel.Size = new System.Drawing.Size(391, 65);
             this.actionRightPanel.TabIndex = 11;
+            // 
+            // submitBillBtn
+            // 
+            this.submitBillBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.submitBillBtn.Animated = true;
+            this.submitBillBtn.BorderRadius = 6;
+            this.submitBillBtn.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.submitBillBtn.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.submitBillBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.submitBillBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.submitBillBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.submitBillBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.submitBillBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(173)))), ((int)(((byte)(66)))));
+            this.submitBillBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.submitBillBtn.ForeColor = System.Drawing.Color.White;
+            this.submitBillBtn.Location = new System.Drawing.Point(280, 11);
+            this.submitBillBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.submitBillBtn.Name = "submitBillBtn";
+            this.submitBillBtn.Size = new System.Drawing.Size(100, 31);
+            this.submitBillBtn.TabIndex = 14;
+            this.submitBillBtn.Text = "Tính Tiền";
+            this.submitBillBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.submitBillBtn.Click += new System.EventHandler(this.submitBillBtn_Click);
             // 
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteButton.Animated = true;
             this.deleteButton.BorderRadius = 6;
+            this.deleteButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.deleteButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.deleteButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.deleteButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -118,20 +149,22 @@ namespace Karaoke.Components
             this.deleteButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(46)))), ((int)(((byte)(35)))));
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(1, 11);
+            this.deleteButton.Location = new System.Drawing.Point(10, 11);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(69, 31);
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Xóa";
+            this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
-            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editButton.Animated = true;
             this.editButton.BorderRadius = 6;
+            this.editButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.editButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.editButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.editButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.editButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -139,20 +172,22 @@ namespace Karaoke.Components
             this.editButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.editButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(85, 11);
+            this.editButton.Location = new System.Drawing.Point(101, 10);
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(70, 31);
             this.editButton.TabIndex = 7;
             this.editButton.Text = "Sửa";
+            this.editButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
-            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addButton.Animated = true;
             this.addButton.BorderRadius = 6;
+            this.addButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.addButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -160,12 +195,13 @@ namespace Karaoke.Components
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(166)))), ((int)(((byte)(104)))));
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(170, 11);
+            this.addButton.Location = new System.Drawing.Point(189, 11);
             this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(70, 31);
+            this.addButton.Size = new System.Drawing.Size(77, 31);
             this.addButton.TabIndex = 6;
             this.addButton.Text = "Thêm";
+            this.addButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // actionLeftPanel
@@ -254,26 +290,26 @@ namespace Karaoke.Components
             this.list.AllowUserToAddRows = false;
             this.list.AllowUserToOrderColumns = true;
             this.list.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.list.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.list.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.list.CausesValidation = false;
             this.list.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.list.ColumnHeadersHeight = 60;
             this.list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -285,37 +321,37 @@ namespace Karaoke.Components
             this.EndDateTime,
             this.Fullname,
             this.Status});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.list.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.list.DefaultCellStyle = dataGridViewCellStyle7;
             this.list.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.list.Location = new System.Drawing.Point(0, 52);
             this.list.Margin = new System.Windows.Forms.Padding(0);
             this.list.Name = "list";
             this.list.ReadOnly = true;
             this.list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.list.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.list.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.list.RowHeadersVisible = false;
             this.list.RowHeadersWidth = 320;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.list.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.list.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.list.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.list.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Menu;
             this.list.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -349,8 +385,8 @@ namespace Karaoke.Components
             // Id
             // 
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
             this.Id.FillWeight = 27.26611F;
             this.Id.HeaderText = "ID";
             this.Id.MinimumWidth = 10;
@@ -360,8 +396,8 @@ namespace Karaoke.Components
             // CustomerName
             // 
             this.CustomerName.DataPropertyName = "CustomerName";
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.CustomerName.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.CustomerName.DefaultCellStyle = dataGridViewCellStyle4;
             this.CustomerName.FillWeight = 98.54253F;
             this.CustomerName.HeaderText = "Tên";
             this.CustomerName.MinimumWidth = 10;
@@ -380,8 +416,8 @@ namespace Karaoke.Components
             // RoomName
             // 
             this.RoomName.DataPropertyName = "Name";
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            this.RoomName.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.RoomName.DefaultCellStyle = dataGridViewCellStyle5;
             this.RoomName.FillWeight = 86.8856F;
             this.RoomName.HeaderText = "Phòng";
             this.RoomName.MinimumWidth = 10;
@@ -391,6 +427,9 @@ namespace Karaoke.Components
             // PriceRoom
             // 
             this.PriceRoom.DataPropertyName = "RoomPrice";
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.PriceRoom.DefaultCellStyle = dataGridViewCellStyle6;
             this.PriceRoom.FillWeight = 76.02415F;
             this.PriceRoom.HeaderText = "Giá Phòng";
             this.PriceRoom.MinimumWidth = 10;
@@ -460,13 +499,13 @@ namespace Karaoke.Components
             // guna2Panel2
             // 
             this.guna2Panel2.Controls.Add(this.deleteOrderBtn);
-            this.guna2Panel2.Controls.Add(this.editOrderBtn);
             this.guna2Panel2.Controls.Add(this.addOrderBtn);
+            this.guna2Panel2.Controls.Add(this.editOrderBtn);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel2.Location = new System.Drawing.Point(830, 0);
+            this.guna2Panel2.Location = new System.Drawing.Point(806, 0);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(242, 54);
+            this.guna2Panel2.Size = new System.Drawing.Size(266, 54);
             this.guna2Panel2.TabIndex = 12;
             // 
             // deleteOrderBtn
@@ -474,6 +513,8 @@ namespace Karaoke.Components
             this.deleteOrderBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteOrderBtn.Animated = true;
             this.deleteOrderBtn.BorderRadius = 6;
+            this.deleteOrderBtn.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.deleteOrderBtn.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.deleteOrderBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteOrderBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.deleteOrderBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -481,12 +522,13 @@ namespace Karaoke.Components
             this.deleteOrderBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(46)))), ((int)(((byte)(35)))));
             this.deleteOrderBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.deleteOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteOrderBtn.Location = new System.Drawing.Point(1, 11);
+            this.deleteOrderBtn.Location = new System.Drawing.Point(10, 11);
             this.deleteOrderBtn.Margin = new System.Windows.Forms.Padding(2);
             this.deleteOrderBtn.Name = "deleteOrderBtn";
             this.deleteOrderBtn.Size = new System.Drawing.Size(69, 31);
             this.deleteOrderBtn.TabIndex = 8;
             this.deleteOrderBtn.Text = "Xóa";
+            this.deleteOrderBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.deleteOrderBtn.Click += new System.EventHandler(this.deleteOrderBtn_Click);
             // 
             // editOrderBtn
@@ -495,6 +537,8 @@ namespace Karaoke.Components
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editOrderBtn.Animated = true;
             this.editOrderBtn.BorderRadius = 6;
+            this.editOrderBtn.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            this.editOrderBtn.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.editOrderBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.editOrderBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.editOrderBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -502,12 +546,13 @@ namespace Karaoke.Components
             this.editOrderBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.editOrderBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.editOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.editOrderBtn.Location = new System.Drawing.Point(85, 11);
+            this.editOrderBtn.Location = new System.Drawing.Point(95, 11);
             this.editOrderBtn.Margin = new System.Windows.Forms.Padding(2);
             this.editOrderBtn.Name = "editOrderBtn";
             this.editOrderBtn.Size = new System.Drawing.Size(70, 31);
             this.editOrderBtn.TabIndex = 7;
             this.editOrderBtn.Text = "Sửa";
+            this.editOrderBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editOrderBtn.Click += new System.EventHandler(this.editOrderBtn_Click);
             // 
             // addOrderBtn
@@ -516,6 +561,8 @@ namespace Karaoke.Components
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addOrderBtn.Animated = true;
             this.addOrderBtn.BorderRadius = 6;
+            this.addOrderBtn.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.addOrderBtn.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addOrderBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addOrderBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addOrderBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -523,12 +570,13 @@ namespace Karaoke.Components
             this.addOrderBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(166)))), ((int)(((byte)(104)))));
             this.addOrderBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.addOrderBtn.Location = new System.Drawing.Point(170, 11);
+            this.addOrderBtn.Location = new System.Drawing.Point(179, 11);
             this.addOrderBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addOrderBtn.Name = "addOrderBtn";
-            this.addOrderBtn.Size = new System.Drawing.Size(70, 31);
+            this.addOrderBtn.Size = new System.Drawing.Size(76, 31);
             this.addOrderBtn.TabIndex = 6;
             this.addOrderBtn.Text = "Thêm";
+            this.addOrderBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.addOrderBtn.Click += new System.EventHandler(this.addOrderBtn_Click);
             // 
             // label1
@@ -546,19 +594,19 @@ namespace Karaoke.Components
             // 
             // orderFoodView
             // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            this.orderFoodView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.orderFoodView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.orderFoodView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderFoodView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderFoodView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.orderFoodView.ColumnHeadersHeight = 40;
             this.orderFoodView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.orderFoodView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -568,14 +616,14 @@ namespace Karaoke.Components
             this.IdOrder,
             this.QtyFood,
             this.Sum});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orderFoodView.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orderFoodView.DefaultCellStyle = dataGridViewCellStyle14;
             this.orderFoodView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.orderFoodView.Location = new System.Drawing.Point(0, 57);
             this.orderFoodView.Name = "orderFoodView";
@@ -621,6 +669,8 @@ namespace Karaoke.Components
             // FoodPrice
             // 
             this.FoodPrice.DataPropertyName = "FoodPrice";
+            dataGridViewCellStyle12.Format = "N0";
+            this.FoodPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.FoodPrice.HeaderText = "Giá mỗi món";
             this.FoodPrice.Name = "FoodPrice";
             // 
@@ -640,6 +690,8 @@ namespace Karaoke.Components
             // Sum
             // 
             this.Sum.DataPropertyName = "Sum";
+            dataGridViewCellStyle13.Format = "N0";
+            this.Sum.DefaultCellStyle = dataGridViewCellStyle13;
             this.Sum.HeaderText = "Tổng";
             this.Sum.Name = "Sum";
             // 
@@ -680,6 +732,15 @@ namespace Karaoke.Components
         private Guna.UI2.WinForms.Guna2TextBox searchBox;
         private Guna.UI2.WinForms.Guna2DataGridView list;
         private Guna.UI2.WinForms.Guna2ComboBox seachTypeBox;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2DataGridView orderFoodView;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button deleteOrderBtn;
+        private Guna.UI2.WinForms.Guna2Button editOrderBtn;
+        private Guna.UI2.WinForms.Guna2Button addOrderBtn;
+        private Guna.UI2.WinForms.Guna2Button submitBillBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
@@ -689,14 +750,6 @@ namespace Karaoke.Components
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2DataGridView orderFoodView;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button deleteOrderBtn;
-        private Guna.UI2.WinForms.Guna2Button editOrderBtn;
-        private Guna.UI2.WinForms.Guna2Button addOrderBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodId;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameFood;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodPrice;

@@ -209,11 +209,12 @@
             this.foodComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.foodComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.foodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.foodComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foodComboBox.FormattingEnabled = true;
-            this.foodComboBox.ItemHeight = 13;
+            this.foodComboBox.ItemHeight = 20;
             this.foodComboBox.Location = new System.Drawing.Point(161, 82);
             this.foodComboBox.Name = "foodComboBox";
-            this.foodComboBox.Size = new System.Drawing.Size(219, 21);
+            this.foodComboBox.Size = new System.Drawing.Size(219, 28);
             this.foodComboBox.TabIndex = 26;
             this.foodComboBox.SelectedIndexChanged += new System.EventHandler(this.foodComboBox_SelectedIndexChanged);
             // 
@@ -234,7 +235,7 @@
             this.Controls.Add(this.IdLabel);
             this.Name = "AddOrderFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddOrderFood";
+            this.Text = "Thêm sản phẩm cho hóa đơn";
             ((System.ComponentModel.ISupportInitialize)(this.qtyTextBox)).EndInit();
             this.ResumeLayout(false);
 

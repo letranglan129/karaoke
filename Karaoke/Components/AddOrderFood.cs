@@ -45,6 +45,11 @@ namespace Karaoke.Components
                     foodComboBox.Enabled = false;
                 }
             }
+
+
+            this.foodComboBox.DropDownStyle = ComboBoxStyle.DropDown;
+            this.foodComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.foodComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -73,18 +78,19 @@ namespace Karaoke.Components
                 case "ADD":
                     {
                         add();
+                        this.Close();
                         break;
                     }
                 case "EDIT":
                     {
                         edit();
+                        this.Close();
                         break;
                     }
                 default:
                     break;
             }
 
-            this.Close();
         }
 
         private void add()

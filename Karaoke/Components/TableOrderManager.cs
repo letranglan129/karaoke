@@ -468,5 +468,14 @@ namespace Karaoke.Components
                 MessageBox.Show("Đã xảy ra lỗi!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void submitBillBtn_Click(object sender, EventArgs e)
+        {
+
+            DataGridViewCellCollection cells = list.SelectedRows[0].Cells;
+            int id = (int)cells["Id"].Value;
+            Bill bill = new Bill(id);
+            bill.ShowDialog();
+        }
     }
 }

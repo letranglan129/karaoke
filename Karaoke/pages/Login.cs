@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Karaoke.DB;
 using Karaoke.App;
+using BC = BCrypt.Net.BCrypt;
 
 namespace Karaoke.pages
 {
@@ -25,20 +26,19 @@ namespace Karaoke.pages
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            var loginQuery = db.Users.Where(x => x.Username == txtUsername.Text && x.Password == txtPassword.Text);
+            var loginUser = db.Users.First(x => x.Username == txtUsername.Text);
 
-            if (loginQuery.Count() > 0)
+            if (loginUser == null || !BC.Verify(txtPassword.Text, loginUser.Password))
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 this.Hide();
-                User loginUser = loginQuery.First();
                 UserStorage.LoginUser = loginUser;
                 Main mainDialog = new Main();
                 mainDialog.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!!!");
             }
         }
 

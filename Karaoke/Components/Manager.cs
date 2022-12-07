@@ -18,6 +18,15 @@ namespace Karaoke.Components
         public Manager()
         {
             InitializeComponent();
+            foreach (TabPage item in this.tabControl.TabPages)
+            {
+                item.Controls.Clear();
+
+                if (UserStorage.LoginUser.UserType != "Quản trị viên" && item.Text == "Quản lý nhân viên")
+                {
+                    this.tabControl.TabPages.Remove(item);
+                }
+            }
             createTableRoomManager();
         }
 
@@ -26,6 +35,11 @@ namespace Karaoke.Components
             foreach (TabPage item in this.tabControl.TabPages)
             {
                 item.Controls.Clear();
+
+                if (UserStorage.LoginUser.UserType != "Quản trị viên" && item.Text == "Quản lý nhân viên")
+                {
+                    this.tabControl.TabPages.Remove(item);
+                }
             }
             switch (e.TabPage.Text)
             {
@@ -42,6 +56,11 @@ namespace Karaoke.Components
                 case "Quản lý hóa đơn":
                     {
                         createTableOrderManager();
+                        break;
+                    }
+                case "Quản lý nhân viên":
+                    {
+                        createTableUserManager();
                         break;
                     }
                 default:
@@ -73,6 +92,15 @@ namespace Karaoke.Components
             tableOrderManager.Parent = this.orderTab;
             tableOrderManager.Show();
             tableOrderManager.Dock = DockStyle.Fill;
+        }
+
+        public void createTableUserManager()
+        {
+            TableUserManager table = new TableUserManager();
+            table.TopLevel = false;
+            table.Parent = this.userTab;
+            table.Show();
+            table.Dock = DockStyle.Fill;
         }
     }
 }

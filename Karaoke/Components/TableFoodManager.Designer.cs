@@ -37,6 +37,7 @@ namespace Karaoke.Components
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableFoodManager));
             this.list = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameFood = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -179,6 +180,8 @@ namespace Karaoke.Components
             // 
             this.Price.DataPropertyName = "Price";
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
             this.Price.DefaultCellStyle = dataGridViewCellStyle5;
             this.Price.FillWeight = 25.90253F;
             this.Price.HeaderText = "Giá";
@@ -211,18 +214,18 @@ namespace Karaoke.Components
             this.actionRightPanel.Controls.Add(this.editButton);
             this.actionRightPanel.Controls.Add(this.addButton);
             this.actionRightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.actionRightPanel.Location = new System.Drawing.Point(650, 0);
+            this.actionRightPanel.Location = new System.Drawing.Point(622, 0);
             this.actionRightPanel.Margin = new System.Windows.Forms.Padding(2);
             this.actionRightPanel.Name = "actionRightPanel";
-            this.actionRightPanel.Size = new System.Drawing.Size(242, 52);
+            this.actionRightPanel.Size = new System.Drawing.Size(270, 52);
             this.actionRightPanel.TabIndex = 11;
             // 
             // deleteButton
             // 
-            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteButton.Animated = true;
             this.deleteButton.BorderRadius = 6;
+            this.deleteButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.deleteButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.deleteButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.deleteButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -231,18 +234,21 @@ namespace Karaoke.Components
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.deleteButton.ForeColor = System.Drawing.Color.White;
             this.deleteButton.ImageSize = new System.Drawing.Size(40, 40);
-            this.deleteButton.Location = new System.Drawing.Point(1, 11);
+            this.deleteButton.Location = new System.Drawing.Point(11, 11);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(69, 31);
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Xóa";
+            this.deleteButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
             this.editButton.Animated = true;
             this.editButton.BorderRadius = 6;
+            this.editButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.editButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.editButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.editButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.editButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -250,18 +256,21 @@ namespace Karaoke.Components
             this.editButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.editButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(85, 11);
+            this.editButton.Location = new System.Drawing.Point(95, 11);
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(70, 31);
             this.editButton.TabIndex = 7;
             this.editButton.Text = "Sửa";
+            this.editButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
             this.addButton.Animated = true;
             this.addButton.BorderRadius = 6;
+            this.addButton.CustomImages.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.addButton.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -269,12 +278,13 @@ namespace Karaoke.Components
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(166)))), ((int)(((byte)(104)))));
             this.addButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(170, 11);
+            this.addButton.Location = new System.Drawing.Point(180, 11);
             this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(70, 31);
+            this.addButton.Size = new System.Drawing.Size(75, 31);
             this.addButton.TabIndex = 6;
             this.addButton.Text = "Thêm";
+            this.addButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // actionLeftPanel

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Karaoke.App;
 using Karaoke.pages;
 
 namespace Karaoke
@@ -17,8 +18,16 @@ namespace Karaoke
         {
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.SetCompatibleTextRenderingDefault(true);
+            if (UserStorage.LoginUser != null)
+            {
+                Application.Run(new Main());
+            }
+            else
+            {
+                Application.Run(new Login());
+            }
+
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

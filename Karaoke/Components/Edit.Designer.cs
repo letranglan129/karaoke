@@ -59,7 +59,7 @@ namespace Karaoke.Components
             this.wrapPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.wrapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wrapPanel.Location = new System.Drawing.Point(0, 0);
-            this.wrapPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wrapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.wrapPanel.Name = "wrapPanel";
             this.wrapPanel.Size = new System.Drawing.Size(392, 297);
             this.wrapPanel.TabIndex = 0;
@@ -76,7 +76,7 @@ namespace Karaoke.Components
             0,
             0});
             this.priceTextBox.Location = new System.Drawing.Point(152, 125);
-            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Maximum = new decimal(new int[] {
             1569325056,
             23283064,
@@ -98,7 +98,7 @@ namespace Karaoke.Components
             this.confirmButton.ForeColor = System.Drawing.Color.White;
             this.confirmButton.IndicateFocus = true;
             this.confirmButton.Location = new System.Drawing.Point(280, 237);
-            this.confirmButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(2);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(90, 31);
             this.confirmButton.TabIndex = 6;
@@ -119,7 +119,7 @@ namespace Karaoke.Components
             this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.IndicateFocus = true;
             this.cancelButton.Location = new System.Drawing.Point(171, 237);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(90, 31);
             this.cancelButton.TabIndex = 5;
@@ -165,7 +165,7 @@ namespace Karaoke.Components
             this.nameTextBox.ForeColor = System.Drawing.Color.Black;
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nameTextBox.Location = new System.Drawing.Point(152, 73);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
             this.nameTextBox.PlaceholderText = "";
@@ -189,7 +189,7 @@ namespace Karaoke.Components
             this.idTextBox.ForeColor = System.Drawing.Color.Black;
             this.idTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.idTextBox.Location = new System.Drawing.Point(152, 21);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.PasswordChar = '\0';
             this.idTextBox.PlaceholderText = "";
@@ -205,7 +205,7 @@ namespace Karaoke.Components
             this.statusLabel.BackColor = System.Drawing.Color.Transparent;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.Location = new System.Drawing.Point(17, 185);
-            this.statusLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusLabel.Margin = new System.Windows.Forms.Padding(2);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(120, 38);
             this.statusLabel.TabIndex = 0;
@@ -218,7 +218,7 @@ namespace Karaoke.Components
             this.priceLabel.BackColor = System.Drawing.Color.Transparent;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLabel.Location = new System.Drawing.Point(17, 133);
-            this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceLabel.Margin = new System.Windows.Forms.Padding(2);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(192, 50);
             this.priceLabel.TabIndex = 0;
@@ -231,7 +231,7 @@ namespace Karaoke.Components
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.Location = new System.Drawing.Point(17, 81);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(2);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(192, 41);
             this.nameLabel.TabIndex = 0;
@@ -244,7 +244,7 @@ namespace Karaoke.Components
             this.IdLabel.BackColor = System.Drawing.Color.Transparent;
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IdLabel.Location = new System.Drawing.Point(17, 29);
-            this.IdLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IdLabel.Margin = new System.Windows.Forms.Padding(2);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(192, 31);
             this.IdLabel.TabIndex = 0;
@@ -259,13 +259,13 @@ namespace Karaoke.Components
             this.Controls.Add(this.wrapPanel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(408, 336);
             this.MinimumSize = new System.Drawing.Size(408, 336);
             this.Name = "Edit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit";
+            this.Text = "Chỉnh sửa phòng";
             this.wrapPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.priceTextBox)).EndInit();
             this.ResumeLayout(false);

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Karaoke.Constanst;
+using Karaoke.Library;
 
 namespace Karaoke.Components
 {
@@ -63,8 +64,7 @@ namespace Karaoke.Components
             this.nameRoom.Text = Room.Name;
             this.statusRoom.Text = Room.Status;
             DateTime time = Convert.ToDateTime(Room.StartDateTime);
-            this.timeStart.Text = "Giờ bắt đầu: " + time.ToShortTimeString();
-            this.price.Text = "Giá: " + Room.Price.ToString();
+            this.price.Text = "Giá: " + Money.format(Room.Price ?? 0);
         }
     }
 }
